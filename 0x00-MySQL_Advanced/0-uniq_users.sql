@@ -1,3 +1,2 @@
 -- sql script that creates table users id, email, name
-
-CREATE TABLE users(id int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, email var(255) NOT NULL UNIQUE, name var(255));
+CREATE TABLE IF NOT EXISTS users(id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, email VARCHAR(255) NOT NULL UNIQUE, name VARCHAR(255));
