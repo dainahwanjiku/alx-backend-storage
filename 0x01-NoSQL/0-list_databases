@@ -1,2 +1,2 @@
 // a script that lists all databases in MongoDB
-listDatabases="$(mongo --quiet --eval  "printjson(db.adminCommand('listDatabases'))")"; ( while IFS=$'\t' read -r size name; do printf '%s\t%s\n' "$name" "$(numfmt --to=iec <<<"$size")"; done < <(jq -r '.databases[] | [.sizeOnDisk, .name] | @tsv' <<<"$listDatabases" | sort -rn); printf -- '-\t-\n'; printf "TOTAL\t%s\n" "$(jq -r .totalSize <<<"$listDatabases" | numfmt --to=iec)" ) | column -t -s$'\t'
+show dbs
